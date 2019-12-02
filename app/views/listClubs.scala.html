@@ -1,0 +1,92 @@
+@(clubs: Seq[Club], form: Form[Club])
+<h1>Exsiting Clubs</h1>
+<table>
+    <thead>
+        <tr><th>Club Name</th>
+            <th>Player 1</th>
+            <th>Player 2</th>
+            <th>Player 3</th>
+            <th>Player 4</th>
+            <th>Player 5</th>
+    </thead>
+    <tbody>
+        @for(w <- clubs) {
+            <tr>
+                <td>@w.clubName</td>
+                <td>@w.player1</td>
+                <td>@w.player2</td>
+                <td>@w.player3</td>
+                <td>@w.player4</td>
+                <td>@w.player5</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@helper.form(routes.FrontendController.createClub) {
+    <h1>Add New Clubs</h1>
+    <ul>
+        <li>
+            <label>Club Name</label>
+            <input type="text" id="@{
+                form("clubName").id
+            }" name="@{
+                form("clubName").label
+            }" value="@{
+                form("clubName").value
+            }">
+        </li>
+        <li>
+            <label>Player 1</label>
+            <input type="text" id="@{
+                form("player1").id
+            }" name="@{
+                form("player1").label
+            }" value="@{
+                form("player1").value
+            }">
+        </li>
+        <li>
+            <label>Player 2</label>
+            <input type="text" id="@{
+                form("player2").id
+            }" name="@{
+                form("player2").label
+            }" value="@{
+                form("player2").value
+            }">
+        </li>
+        <li>
+            <label>Player 3</label>
+            <input type="text" id="@{
+                form("player3").id
+            }" name="@{
+                form("player3").label
+            }" value="@{
+                form("player3").value
+            }">
+        </li>
+        <li>
+            <label>Player 4</label>
+            <input type="text" id="@{
+                form("player4").id
+            }" name="@{
+                form("player4").label
+            }" value="@{
+                form("player4").value
+            }">
+        </li>
+        <li>
+            <label>Player 5</label>
+            <input type="text" id="@{
+                form("player5").id
+            }" name="@{
+                form("player5").label
+            }" value="@{
+                form("player5").value
+            }">
+        </li>
+    </ul>
+    <button type="submit">Save Club</button>
+}
+
